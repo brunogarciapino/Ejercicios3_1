@@ -70,13 +70,13 @@ class ConjuntoLibros(tamanio: Int) {
 fun main(){
     fun main() {
         val libreria = ConjuntoLibros(10)
-        val libro = Libro("El renacer", "Hector", 714, 6)
+        val libro = Libro("El Renacer", "Hector", 714, 6)
         val libro2 = Libro("", "Jose", 220, 8)
 
         println(libreria.añadirLibro(libro))
         println(libreria.añadirLibro(libro2))
-        libreria.eliminar { it?.titulo == "Caperucita" }
-        libreria.eliminar { it?.autor == "Alex" }
+        libreria.eliminar { it?.titulo == "Renacer" }
+        libreria.eliminar { it?.autor == "Jose" }
         println(libreria.añadirLibro(libro2))
         println(libreria)
     }
