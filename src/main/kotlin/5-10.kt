@@ -64,9 +64,6 @@ class ConjuntoLibros(tamanio: Int) {
         else "No se encontró \"$autor\" entre los autores."
     }
 
-    fun maxmin(): String {
-        
-    }
 
 }
 
