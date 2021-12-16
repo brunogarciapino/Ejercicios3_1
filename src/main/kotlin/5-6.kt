@@ -1,4 +1,4 @@
-class Rectangulo(val base:Int,val altura: Int){
+class Rectangulo(var base:Int,var altura: Int){
 
     fun area():Int = base*altura
     fun perimetro():Int = 2*(base*altura)
@@ -6,8 +6,6 @@ class Rectangulo(val base:Int,val altura: Int){
         return super.toString()
     }
 }
-
-
 
 fun main() {
 

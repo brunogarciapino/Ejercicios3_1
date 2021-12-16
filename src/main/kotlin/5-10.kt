@@ -12,23 +12,11 @@ class Libro(val titulo: String, val autor: String, val numpag: Int, calificacion
     }
 }
 
-class ConjuntoLibros(tamanio: Int) {
-    private val size = tamanio
+class ConjuntoLibros(tamaño: Int) {
+    private val size = tamaño
     var libros = arrayOfNulls<Libro>(size)
 
-    fun añadirLibro(libro: Libro): String {
-        return if (libro !in libros) {
-            var counter = 0
-            while (counter in 0 until size) {
-                if (libros[counter] == null) {
-                    libros[counter] = libro
-                    counter = size
-                } else counter++
-            }
-            "El libro $libro ha sido añadido."
-        } else "El libro $libro ya había sido añadido anteriormente."
-    }
-
+    fun añadirLibro(libro: Libro): String {}
     fun almacenados(): Int {
         var cantidad = 0
         for (i in 0 until size) {
@@ -36,25 +24,11 @@ class ConjuntoLibros(tamanio: Int) {
         }
         return cantidad
     }
-
-    fun eliminar(titulo: String): String {
-        val cantidadinicial = almacenados()
-        var counter = 0
-        while (counter in 0 until size) {
-            if (libros[counter]?.titulo == titulo) {
-                libros[counter] = null
-                counter = size
-            } else counter++
-        }
-        return if (cantidadinicial != almacenados()) "El libro \"$titulo\" ha sido eliminado con éxito."
-        else "El libro \"$titulo\" no se ha encontrado entre la lista."
-    }
-
+    fun eliminar(titulo: String): String {}
     fun eliminar(condition: (Libro?) -> Boolean) {
         val pos = libros.indexOfFirst(condition)
         if (pos >= 0) libros[pos] = null
     }
-
     fun eliminarAutor(autor: String): String {
         val cantidadinicial = almacenados()
         for (i in 0 until size) {
@@ -63,10 +37,7 @@ class ConjuntoLibros(tamanio: Int) {
         return if (cantidadinicial != almacenados()) "Se ha eliminado ${cantidadinicial - almacenados()} libro(s) del autor \"$autor\" con éxito."
         else "No se encontró \"$autor\" entre los autores."
     }
-
-
 }
-
 fun main(){
     fun main() {
         val libreria = ConjuntoLibros(10)
@@ -75,8 +46,6 @@ fun main(){
 
         println(libreria.añadirLibro(libro))
         println(libreria.añadirLibro(libro2))
-        libreria.eliminar { it?.titulo == "Renacer" }
-        libreria.eliminar { it?.autor == "Jose" }
         println(libreria.añadirLibro(libro2))
         println(libreria)
     }
